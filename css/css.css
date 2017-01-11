@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('fonts/Montserrat-Regular.eot');
+  src: url('fonts/Montserrat-Regular.woff2') format('woff2'),
+       url('fonts/Montserrat-Regular.woff') format('woff'),
+       url('fonts/Montserrat-Regular.ttf') format('truetype'),
+       url('fonts/Montserrat-Regular.svg#Montserrat-Regular') format('svg'),
+       url('fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+	text-align: center;
+	background: #FFFFFF;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* phones */
+/*
+@media only screen and (max-width: 767px) {
+	body {
+		
+	}
+}
+*/
