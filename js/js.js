@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
 	var video = document.getElementById('video');
-	var mediaConfig =  { video: true };
+	var mediaConfig = { video: true };
 	var errBack = function(e) {
 		console.log('An error has occurred!', e)
 	};
@@ -37,6 +37,22 @@ window.addEventListener("DOMContentLoaded", function() {
 
 	// Trigger photo take
 	document.getElementById('snap').addEventListener('click', function() {
-		context.drawImage(video, 0, 0, 640, 480);
+		(function myLoop (i) {
+		   setTimeout(function() {
+			   console.log(i);
+			   context.drawImage(video, 0, 0, 100, 75);
+			  if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
+		   }, 500)
+		})(10);
+		
+		//convertCanvasToImage(canvas);
 	});
 }, false);
+
+// Converts canvas to an image
+function convertCanvasToImage(canvas) {
+	var image = new Image();
+	image.src = canvas.toDataURL("image/png");
+	//console.log(image);
+	return image;
+}

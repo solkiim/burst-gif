@@ -12,11 +12,23 @@
 
 body {
 	text-align: center;
-	background: #FFFFFF;
+	background: #000;
 	height: 100%;
 	width: 100%;
 	margin: 0px;
 	padding: 0px;
+}
+
+#snap {
+	font-family: 'Montserrat-Regular';
+	cursor: pointer;
+	width: 250px;
+	margin: 0px auto;
+	font-size: 35px;
+	/*background: -webkit-linear-gradient(#FE2864, #FD583D);*/
+	background: -webkit-linear-gradient(#FE2864, #fd713d);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 /* phones */
