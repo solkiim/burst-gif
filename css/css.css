@@ -25,8 +25,8 @@ body {
 	width: 250px;
 	margin: 0px auto;
 	font-size: 35px;
-	/*background: -webkit-linear-gradient(#FE2864, #FD583D);*/
-	background: -webkit-linear-gradient(#FE2864, #fd713d);
+	/*background: -webkit-linear-gradient(left, #FE2864, #fd713d);*/
+	background: -webkit-linear-gradient(left, #00C9FF, #92FE9D);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }

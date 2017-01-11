@@ -46,19 +46,47 @@ window.addEventListener("DOMContentLoaded", function() {
 	document.getElementById('snap').addEventListener('click', function() {
 		encoder.start();
 		
-		(function myLoop (i) {
+		(function burstLoop (i) {
 			setTimeout(function() {
 				context.drawImage(video, 0, 0, 1024, 768);
 				encoder.addFrame(context);	// add to encoder
 				if (--i) {
-					myLoop(i);      		// decrement i and call myLoop again if i > 0
+					burstLoop(i);      		// decrement i and call myLoop again if i > 0
 				} else {
+					console.log("finished");
 					encoder.finish();		// finish gif
-					var binary_gif = encoder.stream().getData() //notice this is different from the as3gif package!
+					var binary_gif = encoder.stream().getData();	// different from the as3gif package
 					var data_url = 'data:image/gif;base64,'+encode64(binary_gif);
-					window.location = data_url;
+					$("#downloadgif").attr("href", data_url);
+					//$('#burstgif').attr("src", data_url);
+					//window.location = data_url;
+					
+					var image = new Image();
+					image.src = data_url;
+					console.log(data_url.type);
+					
+					
+					var data = {
+						"source": image
+					};
+					var settings = {
+					  "async": true,
+					  "crossDomain": true,
+					  "url": "https://api.gifs.com/media/import",
+					  "method": "POST",
+					  "headers": {
+						"Gifs-API-Key": "gifs5875f46b90276",
+						"Content-Type": "application/json"
+					  },
+					  "processData": false,
+					  "data": data
+					}
+
+					$.ajax(settings).done(function (response) {
+					  console.log(response);
+					});
 				}
-			}, 500)
+			}, 0)
 		})(10);
 	});
 }, false);
